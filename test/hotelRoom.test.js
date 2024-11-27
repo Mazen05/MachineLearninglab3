@@ -51,4 +51,13 @@ describe('Hotel Room GET API Tests', () => {
             .send({ roomNumber: 102, roomType: 'Suite', pricePerNight: 200, isBooked: false });
         expect(response.status).toBe(400);
     });
+    
+beforeEach(async () => {
+    await HotelRoom.deleteMany();
+    await HotelRoom.create([
+        { roomNumber: 101, roomType: 'Single', pricePerNight: 100, isBooked: false },
+        { roomNumber: 102, roomType: 'Double', pricePerNight: 150, isBooked: false },
+    ]);
+});
+
 });
